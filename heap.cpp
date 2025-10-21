@@ -7,9 +7,7 @@ private:
     vector<int> heap;
 
     void swap(int i, int j) {
-        int temp = heap[i];
-        heap[i] = heap[j];
-        heap[j] = temp;
+        swap(heap[i], heap[j]); 
     }
 
     void swim(int k) {
@@ -71,4 +69,5 @@ public:
     int size() {
         return heap.size() - 1;
     }
+
 };
