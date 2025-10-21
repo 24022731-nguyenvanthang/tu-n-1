@@ -10,14 +10,13 @@ private:
         swap(heap[i], heap[j]); 
     }
 
-    void swim(int k) {
-        for (;k > 1 && heap[k / 2] < heap[k];)
-        {
+    
+void swim(int k) {
+        while (k > 1 && heap[k / 2] < heap[k]) {
             swap(k, k / 2);
-            k = k / 2; 
+            k = k / 2;
         }
     }
-
     void sink(int k) {
         int n = heap.size() - 1;
         while (2 * k <= n) {
@@ -71,3 +70,4 @@ public:
     }
 
 };
+
