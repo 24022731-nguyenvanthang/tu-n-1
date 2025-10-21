@@ -6,19 +6,16 @@ class Heap {
 private:
     vector<int> heap;
 
-    void swap(int i, int j) {
-        int temp = heap[i];
-        heap[i] = heap[j];
-        heap[j] = temp;
-    }
+  void swap(int i, int j) {
+    swap(heap[i], heap[j]); 
+}
 
     void swim(int k) {
-        for (;k > 1 && heap[k / 2] < heap[k];)
-        {
-            swap(k, k / 2);
-            k = k / 2;
-        }
+    while (k > 1 && heap[k / 2] < heap[k]) {
+        swap(k, k / 2);
+        k = k / 2;
     }
+}
 
     void sink(int k) {
         int n = heap.size() - 1;
@@ -66,4 +63,5 @@ public:
     int size() {
         return heap.size() - 1;
     }
+
 };
