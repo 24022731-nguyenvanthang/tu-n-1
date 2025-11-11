@@ -18,7 +18,7 @@ int hash_function(int data) {
 
 void insert(int data) {
     int index = hash_function(data);
-    Node* temp = new Node;// cấp phát vùng nhớ động mới , tạo node temp độc lập có giá trị = data,
+    Node* temp = new Node;
     temp->value = data;
     temp->next = NULL;
 
@@ -26,22 +26,23 @@ void insert(int data) {
         hash_table[index] = temp;
         return;
     } else {
-    	temp->next = hash_table[index];// nếu ô đó có ptu khác thì xảy ra va chạm
-    	hash_table[index] = temp; // thì con trỏ mới trở đến node cũ đã có phần tử và node mới ở đầu danh sách
+    	temp->next = hash_table[index];
+    	hash_table[index] = temp; // con trỏ mới trở đến node cũ đã có phần tử và node mới ở đầu danh sách
 	}
    
 }
 int find(int data)
 {
-    int index = hash_function(data);    // Tính chỉ số băm
-    Node* current = hash_table[index];  // Lấy node đầu danh sách tại vị trí đó
+    int index = hash_function(data);  
+    Node* current = hash_table[index]; 
 
-    while (current != NULL) {           // Duyệt từng node trong danh sách
-        if (current->value == data)     // Nếu trùng giá trị
-            return 1;                   // Tìm thấy
-        current = current->next;        // Chuyển sang node kế tiếp
+    while (current != NULL) {          
+        if (current->value == data)     
+            return 1;                   
+        current = current->next;   
     }
 
-    return 0; // Không tìm thấy trong danh sách
+    return 0;
 }
+
 
